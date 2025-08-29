@@ -24,6 +24,29 @@ Workshop1/
 ├── .gitignore
 └── README.md
 
+## Star Schema Diagram
+
+![Star Schema](pics/diagrama_estrella.png)
+
+## Explanation star Schema Diagram
+
+- **Fact Table:** `scores_fact_table`  
+  Contains all numeric measures and foreign keys to dimension tables. It includes metrics of interest to the company, such as `total hires`, `Code Challenge Score`, and `Technical Interview Score`, as well as other columns like `YOE` and `hired`.  
+  Each row links to a candidate, their seniority, technology, country, and application date through foreign keys.
+
+- **Dimension Tables:**  
+  - `interviewed_table`: candidate information (First Name, Last Name, Email, unique ID).  
+  - `country_table`: list of countries with unique IDs.  
+  - `seniority_table`: seniority levels with unique IDs.  
+  - `technology_table`: technologies with unique IDs.  
+  - `date_table`: full date information (full_date, day, month, year) with unique ID.
+
+- **Relationships:**  
+  Each row in the fact table references one row in each dimension table via foreign keys.  
+  This star schema allows easy aggregation and analysis, e.g., “total hires by technology” or “hires by year”.
+
+
+
 # Requirements
 
 - Python 3.10+  
@@ -33,7 +56,9 @@ Workshop1/
 
 1. Run the ETL script:
 
-python src/etl.py
+```bash
+python src/etl.py 
+```
 
 The ETL will generate a SQLite database data/candidatesdw.db containing:
 
@@ -43,7 +68,9 @@ Fact table: scores_fact_table
 
 2. Run Analysis and Visualizations
 
+```bash
 python src/query.py
+```
 
 Generates KPIs and charts:
 
