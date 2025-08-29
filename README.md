@@ -8,6 +8,7 @@ The pipeline follows a **star schema model** with a fact table for scores and mu
 - **Dimension Tables:** `interviewed_table`, `country_table`, `seniority_table`, `technology_table`, `date_table`
 
 ## Project Structure
+`````
 Workshop1/
 │
 ├── data/
@@ -23,6 +24,7 @@ Workshop1/
 │
 ├── .gitignore
 └── README.md
+`````
 
 ## Star Schema Diagram
 
